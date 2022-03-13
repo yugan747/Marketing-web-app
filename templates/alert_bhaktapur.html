@@ -1,0 +1,43 @@
+{% extends 'home.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% block additionalStyles %} <link rel="stylesheet" href="{% static 'Css/alert.css'%}">{% endblock %}
+</head>
+<body>
+    {% block content %}
+    {% for alert in alert_order %}
+    
+  
+    
+    <h1>Name:{{alert.customer.Name}}</h1>
+    <h1>Location:{{alert.customer.location}}</h1>
+    <h1>Contact1:{{alert.customer.Contact1}}</h1>
+    <h1>Contact2:{{alert.customer.Contact2}}</h1>
+    <h1>Product:{{alert.customer.get_Product_display}}</h1>
+    <h1>Price:{{alert.customer.Price}}</h1>
+    <h1>Customer type :{{alert.customer.get_Customer_type_display}}</h1>
+    <h1>Rating:{{alert.get_rating_display}}</h1>
+   <h1>Image:<img src="{{alert.customer.Image.url}}" alt="" srcset=""> </h1>
+   <a href="{% url 'cash' id=alert.id %}" class="newanchor">Oncash</a>
+   <a href="{% url 'showtransactions' id=alert.customer.id%}" class="newanchor">show transactions </a>
+   <a href="{% url 'customeralert_details' id=alert.customer.id%}" class="newanchor">Customer details</a>
+   <a href="{% url 'update_bhaktapur' id=alert.id%}" class="newanchor">Update</a>
+ 
+   <a href="{% url 'Delete_bhaktapur' id=alert.id%} " class="newanchor">Delete</a>
+   
+  
+  
+  
+    
+    <h1>Quantity:{{alert.Quantity}}</h1>
+   
+    {% endfor %}
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,42 @@
+{% extends 'home.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% block additionalStyles %} <link rel="stylesheet" href="{% static 'Css/alert.css'%}">{% endblock %}
+</head>
+<body>
+    {% block content %}
+    {% for alert in alert_order %}
+    
+  
+    <div class="alert">
+   <img src="{{alert.customer.Image.url}}" alt="" srcset="">  <img src="{{alert.customer.Images_Map.url}}" alt="" srcset=""> 
+  
+   <a href="{% url 'cash' id=alert.id %}" class="newanchor">Oncash</a>
+   <a href="{% url 'showtransactions' id=alert.customer.id%}" class="newanchor">show transactions </a>
+   <a href="{% url 'customeralert_details' id=alert.customer.id%}" class="newanchor">Customer details</a>
+   <a href="{% url 'update_kathmandu' id=alert.id%}" class="newanchor">Update</a>
+ 
+   <a href="{% url 'Delete_kathmandu' id=alert.id%} " class="newanchor">Delete</a>
+   <br>
+   <br>
+   <hr>
+   <hr>
+</div>
+    
+   
+  
+  
+  
+    
+   
+   
+    {% endfor %}
+    {% endblock %}
+</body>
+</html>

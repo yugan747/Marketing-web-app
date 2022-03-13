@@ -1,0 +1,55 @@
+{% extends 'home.html' %}
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% block additionalStyles %}<link rel="stylesheet" href="{% static 'Css/transaction.css'%}">{%endblock%}
+  
+</head>
+<body>
+  
+    {% block content %}
+   
+ 
+    
+    <table style="width:100%">
+        <tr>
+          <th>Name</th>
+          <th>Time</th>
+          <th>Quantiy</th>
+          <th>Price</th>
+          <th>Amount</th>
+          <th>Cash</th>
+          <th>Credit</th>
+          
+        </tr>
+        {% for or in order %}
+        {% for or1 in or.order_set.all%}
+        <tr>
+          <td>{{or1.customer.Name}}</td>
+          <td>{{or1.money_transaction.Date}}</td>
+          <td>{{or1.Quantity}}</td>
+          <td>{{or1.Price}}</td>
+          <td>{{or1.total_cash}}</td>
+          <td> {{or1.money_transaction.cash}}</td>
+          <td> {{or1.money_transaction.remain_credit}}</td>
+          
+        </tr>
+        {%endfor%}
+        {% endfor %}
+        {% endblock %}
+       
+        
+    
+        
+       
+      
+       
+    
+    
+</body>
+</html>

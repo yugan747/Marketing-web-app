@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<!-- Created By CodingNepal - www.codingnepalweb.com -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Responsive Navbar | CodingNepal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'Css/yugan.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    {% block additionalStyles %} {% endblock %}
+  </head>
+  <body>
+    <nav>
+      <input type="checkbox" id="check">
+      <label for="check" class="checkbtn">
+        <i class="fas fa-bars"></i>
+      </label>
+      <label class="logo">SuryaTea</label>
+      <a href="{% url 'logoutPage'%}">Logout</a>
+    
+      <ul>
+        <li><a class="active" href="{% url 'home'%}">Home</a></li>
+        <li><a href="{% url 'alert'%}">Today's Alert</a></li>
+        <li><a href="{%url 'mysales'%}">Mysales</a></li>
+        <li><a href="{%url 'customer_transactions'%}">Transaction</a></li>
+        <li><a href="{% url 'neworder'%}">Order</a></li>
+        
+        <li><a href="{% url 'register1'%}">Register</a></li>
+        <li><a href="{% url 'customer_details'%}">Customer Details</a></li>
+      </ul>
+    </nav>
+    {% block content%}
+    <section>
+      {% block section%}
+      <img src="{% static 'Images/tea.jpg'%}" alt="this is the image of Tea " srcset="">
+      {% endblock%}
+      
+       
+       
+     
+       
+    </section>
+    {% endblock %}
+   
+  </body>
+</html>

@@ -1,0 +1,29 @@
+{% load static%}
+<!DOCTYPE html>
+<html>
+
+    
+<head>
+	<link rel="stylesheet" href="{% static 'Css/login.css'%}">
+	<div class="form">
+	<form action="" method="POST">
+		{% csrf_token %}
+		<label for="username">username</label>
+		<input type="text" name="username" id="">
+		<label for="password">password</label>
+		<input type="password" name="password" id="">
+	
+		<input type="submit" value="Login">
+		
+
+	</form>
+</div>
+<div class="errors">
+	{% for message in messages%}
+	{{message}}
+	{% endfor %}
+	<h1>Dont have account <a href="{% url 'register'%}">SignUp</a></h1>
+</div>
+</body>
+
+</html>

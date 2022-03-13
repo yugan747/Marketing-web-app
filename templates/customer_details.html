@@ -1,0 +1,24 @@
+{% extends 'home.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% block additionalStyles %} <link rel="stylesheet" href="{% static 'Css/alert.css'%}">{% endblock %}
+</head>
+<body>
+    {%block content %}
+    <div class="district_alert">
+
+   <a href="{% url 'kathmandu_details'%}" class="newanchor1">Customer kathmandu </a><br>
+   <a href="{% url 'bhaktapur_details'%}" class="newanchor1">Customer bhaktapur </a><br>
+   <a href="{% url 'lalitpur_details'%}" class="newanchor1">Customer lalitpur </a>
+</div>
+   {%endblock%}
+   
+</body>
+</html>

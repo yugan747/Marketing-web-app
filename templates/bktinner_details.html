@@ -1,0 +1,38 @@
+{% extends 'home.html' %}
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% block additionalStyles %}<link rel="stylesheet" href="{% static 'Css/transaction.css'%}">{%endblock%}
+  
+</head>
+<body>
+    {% block content %}
+   
+ 
+    
+        {% for cus in customer %}
+    
+        
+          <h1>Name:{{cus.Name}}</h1>
+          <h1>Location:{{cus.location}}</h1>
+            <h1>Contact1:{{cus.Contact1}}</h1>
+            <h1>Contact2:{{cus.Contact2}}</h1>
+            <h1>District:{{cus.get_District_display}}</h1>
+            <h1>{{cus.Product}}</h1>
+            <h1>Note:{{cus.Note}}</h1>
+         
+          
+        </tr>
+       
+        {% endfor %}
+        {% endblock %}
+       
+        
+    
+</body>
+</html>
